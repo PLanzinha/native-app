@@ -50,11 +50,13 @@ export default class App extends React.Component {
           <Text>Touchable</Text>
         </TouchableOpacity>
         <TouchableNativeFeedback
-            onPress={this._onPressButton}
-            background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''}>
+            onPress={() => {} }>
             <View style={styles.button}>
-            <Text style={styles.buttonText}>TouchableNativeFeedback</Text>
-          </View>
+              <Text style={styles.buttonText}>            
+              {Platform.OS === 'android' ? 'é um android' : 'não é um android'}
+              {Platform.OS === 'ios' ? 'é um ios' : 'não é um ios'}
+              </Text>
+            </View> 
         </TouchableNativeFeedback>
     </View>
     <View style={{flex:2, backgroundColor: '#00f'}}>
