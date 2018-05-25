@@ -9,6 +9,8 @@ import {
   Button, 
   Alert, // pomos assim para não ficar um comboio gigante e ser mais facil de sabermos o que adicionar
   TouchableOpacity,
+  TouchableNativeFeedback,
+  Platform
 } from 'react-native';
 import Agradecimento from './componentes/Agradecimento'
 import  styles, { version } from './styles/styles' // colocar .js não muda em nada o ficheiro, este import styles não é igual ao export deffault styles, podem não ter nomes iguais que funciona na mesma  
@@ -47,7 +49,13 @@ export default class App extends React.Component {
             title="Press Touchable">
           <Text>Touchable</Text>
         </TouchableOpacity>
- 
+        <TouchableNativeFeedback
+            onPress={this._onPressButton}
+            background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''}>
+            <View style={styles.button}>
+            <Text style={styles.buttonText}>TouchableNativeFeedback</Text>
+          </View>
+        </TouchableNativeFeedback>
     </View>
     <View style={{flex:2, backgroundColor: '#00f'}}>
       <ScrollView >
